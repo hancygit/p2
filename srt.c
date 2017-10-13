@@ -132,9 +132,9 @@ int srt(process *ptr)
         }
     }
 
-    printf("Average turn around time in this run: %3.1f quanta\n", turnaround_time / NUMBER_OF_PROCS);
-    printf("Average response time in this run: %3.1f quanta\n", response_time / NUMBER_OF_PROCS);
-    printf("Average waiting time in this run: %3.1f quanta\n", waiting_time / NUMBER_OF_PROCS);
+    printf("Average turn around time in this run: %3.1f quanta\n", turnaround_time / done_procs);
+    printf("Average response time in this run: %3.1f quanta\n", response_time / done_procs);
+    printf("Average waiting time in this run: %3.1f quanta\n", waiting_time / done_procs);
     printf("Throughput: %3.3f\n", (float)done_procs/(float)total_quanta);
 
     printf("CPU was idle %3.1f Quanta \n\n", idle_time);
