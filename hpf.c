@@ -42,7 +42,7 @@ void Print_HPF_Stats(process* ptr,int* fs,int* ls,int* done) {
 	avg_rt[i] /= proc_cnt[i];
 	avg_tat[i] /= proc_cnt[i];
 	avg_wt[i] /= proc_cnt[i];
-	th[i] = (100.0*proc_cnt[i]) / last_q;
+	th[i] = ((1.0*proc_cnt[i]) / (1.0*last_q));
     }
 
     printf("\n***Overall statistics***\n");
@@ -51,7 +51,7 @@ void Print_HPF_Stats(process* ptr,int* fs,int* ls,int* done) {
     avg_turn_around_time /= processes;
     avg_waiting_time /= processes;
     printf("Avg. Response time: %f\nAvg. Turn around-time: %f\nAvg. Waiting time: %f\n",avg_response_time,avg_turn_around_time,avg_waiting_time);
-    throughput = (100.0*processes)/last_q;
+    throughput = (1.0*(processes))/(1.0*last_q);
     printf("Avg. throughput: %f\n",throughput);
 
     // Display priority specific stats
