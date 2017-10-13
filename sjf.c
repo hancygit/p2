@@ -29,6 +29,7 @@ int sjf(process *ptr)
     float q_idle_time = 0;
     float response_time =0;
     float turnaround_time =0;
+    float waiting_time = 0;
     process* c_proc = NULL;
 
     // sort on expected runtime
@@ -71,6 +72,7 @@ int sjf(process *ptr)
             q_idle_time = (-1) * c_proc->remaining_runtime;
             c_proc->remaining_runtime = 0;
             turnaround_time += i - c_proc->arrival_time;
+	    waiting_time += turnaround_time - c_proc->expected_runtime;
         }
 
         // Print the process id and its remaining runtime
@@ -104,6 +106,7 @@ int sjf(process *ptr)
             q_idle_time = (-1) * c_proc->remaining_runtime;
             c_proc->remaining_runtime = 0;
             turnaround_time += i - c_proc->arrival_time;
+	    waiting_time += turnaround_time - c_proc->expected_runtime;
         }
         // Print the process id and its remaining runtime
         printf("[p%02d](%2.1f)|", c_proc->pid, c_proc->remaining_runtime);
@@ -133,6 +136,7 @@ int sjf(process *ptr)
 
     printf("Average turn around time in this run: %3.1f quanta\n", turnaround_time / NUMBER_OF_PROCS);
     printf("Average response time in this run: %3.1f quanta\n", response_time / NUMBER_OF_PROCS);
+    printf("Average waiting time in this run: %3.1f quanta\n", waiting_time / NUMBER_OF_PROCS);
     printf("Throughput: %3.3f\n", (float)done_procs/(float)total_quanta);
 
     printf("CPU was idle %3.1f Quanta \n\n", idle_time);
