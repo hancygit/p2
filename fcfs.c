@@ -103,9 +103,9 @@ void fcfs(process *ptr)
         printf("All procs finished after %d QUANTA\n", total_quanta);
     }
 
-    printf("\nAverage turn around time in this run: %3.1f quanta\n", turnaround_time / NUMBER_OF_PROCS);
-    printf("Average response time in this run: %3.1f quanta\n", response_time / NUMBER_OF_PROCS);
-    printf("Average waiting time in this run: %3.1f quanta\n", waiting_time / NUMBER_OF_PROCS);
+    printf("\nAverage turn around time in this run: %3.1f quanta\n", turnaround_time / (NUMBER_OF_PROCS-proc_cnt));
+    printf("Average response time in this run: %3.1f quanta\n", response_time / (NUMBER_OF_PROCS-proc_cnt));
+    printf("Average waiting time in this run: %3.1f quanta\n", waiting_time / (NUMBER_OF_PROCS-proc_cnt));
     printf("Throughput: %3.3f\n", (float)(NUMBER_OF_PROCS-proc_cnt)/(float)total_quanta);
 
     printf("\ncpu was idle %3.1f Quanta \n", idle_time);
