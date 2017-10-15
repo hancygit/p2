@@ -42,7 +42,7 @@ int simulator1(char * s, process *ptr, process* (*f)(process *, int, process *, 
             if (c_proc->expected_runtime == c_proc->remaining_runtime){
                 current_response_time = i - c_proc->arrival_time;
                 total_response_time += current_response_time;
-                printf("\t - this process [p%02d] just started and had response time: %3.2f\n", c_proc->pid, current_response_time);
+//                printf("\t - this process [p%02d] just started and had response time: %3.2f\n", c_proc->pid, current_response_time);
             }
             if(c_proc->expected_runtime == c_proc->remaining_runtime && i>QUANTA-1){
                 printf("***\n");
@@ -63,7 +63,7 @@ int simulator1(char * s, process *ptr, process* (*f)(process *, int, process *, 
                 total_turnaround_time += current_turnaround_time;
                 current_waiting_time = current_turnaround_time - c_proc->expected_runtime;
 		        total_waiting_time += current_waiting_time;
-		        printf("\t - process [p%02d] is done. turn around: %3.2f waiting: %3.2f\n", c_proc->pid, current_turnaround_time, current_waiting_time);
+//		        printf("\t - process [p%02d] is done. turn around: %3.2f waiting: %3.2f\n", c_proc->pid, current_turnaround_time, current_waiting_time);
             }
 
             // Print the process id and its remaining runtime

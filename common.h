@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#define NUMBER_OF_PROCS 3
+#define NUMBER_OF_PROCS 30
 #define RUNS_PER_ALGO 5
 #define QUANTA 100
 
