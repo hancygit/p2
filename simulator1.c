@@ -19,13 +19,12 @@ int simulator1(char * s, process *ptr, process* (*f)(process *, int, process *, 
     int last_serviced = 0;
     int proc_cnt = 0;
 
-    // sort on expected runtime
+    // sort on arrival_times
     qsort(ptr, NUMBER_OF_PROCS, sizeof(process), compare_arrival_times);
 
     printf("expected order:\n");
     print_procs(ptr);
     printf("%s Simulation starting...\n\n", s);
-//    printf("\n First Come First Serve Simulation starting...\n\n");
     while (1)
     {
     	current_idle_time = 0;    // var to measure idle time in this quanta
@@ -55,7 +54,7 @@ int simulator1(char * s, process *ptr, process* (*f)(process *, int, process *, 
             // Now we found a process to run and we process by subtracting 1 from the remaining time
             c_proc->remaining_runtime -= 1;
 
-            // Check to see if this process finished, if so, we record the cpu idle time in this quanta
+            // Check to see if this process finished, if so, we record stats
             if (c_proc->remaining_runtime <= 0){
                 proc_cnt++;
                 current_idle_time = (-1) * c_proc->remaining_runtime;

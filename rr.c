@@ -1,3 +1,12 @@
+/*
+//
+//    COEN 383 Project #2
+//    Team #2
+//
+//    File: fcfs.c
+//
+//
+*/
 #include "common.h"
 
 //Get index of the last served process
@@ -15,7 +24,14 @@ static int get_index(process* ptr, int last_serviced)
     return 0;
 }
 
-// takes a sorted process array and a quanta and returns the next valid proc to run or NULL if none found
+// next_prc_rr:
+// This function returns a pointer to a valid process that should be process next.
+//
+//  Inputs:
+//  ptr - pointer to the array of procs
+//  Q - the current quanta to compare against arrival time
+//  c - pointer to the last proc that had the cpu
+//  last_serviced - pid of the last serviced proc
 process * next_proc_rr(process* ptr, int Q, process* c, int last_serviced){
     int i =0;
     int index = 0;

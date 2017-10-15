@@ -1,5 +1,22 @@
+/*
+//
+//    COEN 383 Project #2
+//    Team #2
+//
+//    File: fcfs.c
+//
+//
+*/
 #include "common.h"
 
+// next_prc_srt:
+// This function returns a pointer to a valid process that should be process next.
+//
+//  Inputs:
+//  ptr - pointer to the array of procs
+//  Q - the current quanta to compare against arrival time
+//  S - flag to ask for processes that have already started only
+//  c - pointer to the last proc that had the cpu
 process * next_proc_srt(process* ptr, int Q, int S, process* nop){
     int i =0;
     qsort(ptr, NUMBER_OF_PROCS, sizeof(process), compare_remaining_runtimes);

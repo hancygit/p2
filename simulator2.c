@@ -16,22 +16,18 @@ int simulator2(char* s, process *ptr, process* (*f)(process*, int, int, process*
 
     process* c_proc = NULL;
 
-    // sort on shortest remaining time
+    // Sort based on compar function passed
     qsort(ptr, NUMBER_OF_PROCS, sizeof(process), compar);
 
     printf("expected order:\n");
     print_procs(ptr);
     printf("%s Simulation starting...\n\n", s);
-//    printf("\n Shortest Remaining Time Simulation starting...\n\n");
     for (i=0; i<QUANTA; i++)
     {
-        // sort on remaining time
-//        qsort(ptr, NUMBER_OF_PROCS, sizeof(process), compare_remaining_runtimes);
+        // Sort based on compar function passed
         qsort(ptr, NUMBER_OF_PROCS, sizeof(process), compar);
         current_idle_time = 0;    // var to measure idle time in this quanta
         if (done_procs == NUMBER_OF_PROCS) break; // if all procs are finished we break this loop
-
-//        c_proc = next_proc_pre(ptr, i);
         c_proc = f(ptr, i, 0, c_proc);
 
         // If c_proc is NULL there are no available procs to run so print QUANTA header with idle time and continue.
@@ -48,12 +44,10 @@ int simulator2(char* s, process *ptr, process* (*f)(process*, int, int, process*
             printf("\t - this process [p%02d] just started and had response time: %3.2f\n", c_proc->pid, current_response_time);
         }
 
-        // If we get here, we have a valid proc to run at c_proc
-
         // Now we found a process to run and we process by subtracting 1 from the remaining time
         c_proc->remaining_runtime -= 1;
 
-        // Check to see if this process finished, if so, we record the cpu idle time in this quanta
+        // Check to see if this process finished, if so, we record stats
         if (c_proc->remaining_runtime <= 0){
             done_procs++;
             current_idle_time = (-1) * c_proc->remaining_runtime;

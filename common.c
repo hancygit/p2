@@ -1,7 +1,16 @@
+/*
+//
+//    COEN 383 Project #2
+//    Team #2
+//
+//    File: common.c
+//
+//    common functions used
+//
+*/
 #include "common.h"
-#include <stdlib.h>
-#include <stdio.h>
 
+// Function to compare the arrival time of a process
 int compare_arrival_times(const void * a, const void * b)
 {
     process *p1 = (process*)a;
@@ -12,6 +21,7 @@ int compare_arrival_times(const void * a, const void * b)
     return r;
 }
 
+// Function to compare the expected runtimes of a process
 int compare_expected_runtimes(const void * a, const void * b)
 {
     process *p1 = (process*)a;
@@ -22,6 +32,7 @@ int compare_expected_runtimes(const void * a, const void * b)
     return r;
 }
 
+// Function to compare the remaining time of a process
 int compare_remaining_runtimes(const void * a, const void * b)
 {
     process *p1 = (process*)a;
@@ -32,6 +43,7 @@ int compare_remaining_runtimes(const void * a, const void * b)
     return r;
 }
 
+// Function to compare the priorities of a process
 int compare_priorities(const void * a, const void * b)
 {
     process *p1 = (process*)a;
@@ -39,7 +51,8 @@ int compare_priorities(const void * a, const void * b)
     return (p1->priority - p2->priority);
 }
 
-
+// Function to generate processes with pseudo random parameters
+// Takes a pointer to a pre-allocated buffer and populates it.
 int generate_procs(process *p)
 {
     int pr;
@@ -67,6 +80,7 @@ int generate_procs(process *p)
     return 0;
 }
 
+// Function to print the processes in a buffer.
 int print_procs(process *b){
     int i;
     printf("________________________________________________________\n");
