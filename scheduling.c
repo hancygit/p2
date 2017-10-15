@@ -3,10 +3,10 @@
 #include <string.h>
 
 #include "common.h"
-#include "fcfs.h"
-#include "sjf.h"
-#include "srt.h"
-#include "rr.h"
+//#include "fcfs.h"
+//#include "sjf.h"
+//#include "srt.h"
+//#include "rr.h"
 #include "hpf.h"
 
 // TODO: Answer the following:
@@ -43,49 +43,58 @@ int main(int argc, char *argv[])
         return 0;
     }
 
-    srand(0);
+
     process proc_list[NUMBER_OF_PROCS];
     int i;
     process *buff = malloc(NUMBER_OF_PROCS * sizeof(process));
 
     if(strcmp(argv[1], "fcfs") == 0){
         printf("Running fcfs %d times\n", RUNS_PER_ALGO);
+        srand(0);
         for (i=0; i< RUNS_PER_ALGO; i++)
         {
             printf("run #%d:\n", i);
             generate_procs(buff);
             print_procs(buff);
-            fcfs(buff);
+//            fcfs(buff);
+            simulator1("First Come First Serve", buff, next_proc_fcfs);
         }
     } else if(strcmp(argv[1], "rr") == 0) {
         printf("Running rr %d times\n", RUNS_PER_ALGO);
+        srand(0);
         for (i=0; i< RUNS_PER_ALGO; i++)
         {
            printf("Running rr %d\n", i);
            generate_procs(buff);
            print_procs(buff);
-           rr(buff);
+//           rr(buff);
+           simulator1("Round Robin", buff, next_proc_rr);
         }
     } else if(strcmp(argv[1], "sjf") == 0) {
         printf("Running sjf %d times\n", RUNS_PER_ALGO);
+        srand(0);
         for (i=0; i< RUNS_PER_ALGO; i++)
         {
             printf("run #%d:\n", i);
             generate_procs(buff);
             print_procs(buff);
-            sjf(buff);
+//            sjf(buff);
+            simulator2("Shortest Job First", buff, next_proc_sjf, compare_expected_runtimes);
         }
     } else if(strcmp(argv[1], "srt") == 0) {
         printf("Running srt %d times\n", RUNS_PER_ALGO);
+        srand(0);
         for (i=0; i< RUNS_PER_ALGO; i++)
         {
             printf("run #%d:\n", i);
             generate_procs(buff);
             print_procs(buff);
-            srt(buff);
+//            srt(buff);
+            simulator2("Shortest Remaining Time", buff, next_proc_srt, compare_remaining_runtimes);
         }
     } else if(strcmp(argv[1], "hpf") == 0) {
         printf("Running hpf %d times\n", RUNS_PER_ALGO);
+        srand(0);
         for (i=0; i< RUNS_PER_ALGO; i++)
         {
             printf("%d\n", i);
@@ -100,6 +109,7 @@ int main(int argc, char *argv[])
         }
     } else if(strcmp(argv[1], "hpfPre") == 0) {
         printf("Running hpf %d times\n", RUNS_PER_ALGO);
+        srand(0);
         for (i=0; i< RUNS_PER_ALGO; i++)
         {
             printf("%d\n", i);
