@@ -3,6 +3,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 #define NUMBER_OF_PROCS 30
 #define RUNS_PER_ALGO 5

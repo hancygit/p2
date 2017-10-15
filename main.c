@@ -1,21 +1,16 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-
+/*
+//
+//    COEN 383 Project #2
+//    Team #2
+//
+//    File: main.c
+//
+//
+*/
 #include "common.h"
-//#include "fcfs.h"
-//#include "sjf.h"
-//#include "srt.h"
-//#include "rr.h"
 #include "hpf.h"
 
-// TODO: Answer the following:
-// can we add remaining time to the process struct?
-// why does arrival time need to be a float?
-// why does expected run time run from 0.1 to 10
-//     with possible values: [ 0.1, 1, 2, 3, 4 .. 10 ]
-
-
+// Main function, will parse the cmd line args and choose the right algo to run
 int main(int argc, char *argv[])
 {
 
@@ -124,8 +119,6 @@ int main(int argc, char *argv[])
         }
     } else {
         printf("Invalid options %s. See options with -h \n", argv[1]);
-        return 0;
     }
-
     return 0;
 }
