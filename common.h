@@ -33,4 +33,9 @@ process* next_proc_fcfs(process*, int, process*, int);
 process* next_proc_srt(process*, int, int, process*);
 process* next_proc_sjf(process*, int, int, process*);
 
+int hpf_preemptive(process*);
+int hpf_nonpreemptive(process*);
+void Print_HPF_Stats(process*,int*,int*,int*);
+
+
 #endif

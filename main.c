@@ -8,7 +8,6 @@
 //
 */
 #include "common.h"
-#include "hpf.h"
 
 // Main function, will parse the cmd line args and choose the right algo to run
 int main(int argc, char *argv[])
