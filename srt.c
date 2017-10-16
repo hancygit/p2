@@ -3,7 +3,7 @@
 //    COEN 383 Project #2
 //    Team #2
 //
-//    File: fcfs.c
+//    File: srt.c
 //
 //
 */
